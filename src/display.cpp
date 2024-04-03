@@ -47,10 +47,18 @@ void setupDisplay()
             u8g2->print("Wakecount:");
             u8g2->setCursor(90,55);
             u8g2->print(wakeup_count);
-        } while (u8g2->nextPage());
+/*          u8g2->drawStr(0, 30, PMU->getBattVoltage());
+            u8g2->drawHLine(2, 35, 47);
+            u8g2->drawHLine(3, 36, 47);
+            u8g2->drawVLine(45, 32, 12);
+            u8g2->drawVLine(46, 33, 12);
+            u8g2->setFont(u8g2_font_inb19_mf);
+            u8g2->drawStr(58, 60, "LoRa");
+*/        } while (u8g2->nextPage());
         u8g2->sendBuffer();
         u8g2->setFont(u8g2_font_fur11_tf);
         delay(3000);
 
+//        u8g2->clearDisplay();
     }
 }
