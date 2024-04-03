@@ -29,6 +29,11 @@ void setup()
   digitalWrite(LED, LOW); // LED on
   startup_axp();
 
+  Serial.print("Wakeupcount:");
+  Serial.println(wakeup_count);
+
+  setupDisplay();
+
   Serial.println(PMU->getBattVoltage());
 
   esp_sleep_wakeup_cause_t wakeup_reason =
@@ -74,6 +79,7 @@ void setup()
       axp_gps(0); // turn GPS off
       sendStatus(3, 0);
       digitalWrite(LED, HIGH); // turn the LED off
+      u8g2->clearDisplay();
       enterSleep();            // enter sleep without timer
     }
     else if (cause == 3) // <------------------------- battery critical
