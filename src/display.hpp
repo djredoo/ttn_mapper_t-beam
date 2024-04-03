@@ -3,6 +3,7 @@
 #include <Arduino.h>
 #include "config.hpp"
 #include <Wire.h>
+#include "power.hpp"
 
 #include <U8g2lib.h>
 
